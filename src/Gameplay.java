@@ -4,34 +4,40 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.LinkedList;
 
 public class Gameplay extends JPanel implements KeyListener, ActionListener {
 
     private Timer timer;
     private int delay=15;
-    private int playerposX=20;
-    private int playerposY=20;
+    private Wspolrzedne playerPos = new Wspolrzedne(20,20);
+    private JFrame frame;
+    private LinkedList<Bomb> bombs = new LinkedList<Bomb>();
+    private LinkedList<Wybuch> wybuchy = new LinkedList<Wybuch>();
 
     private void mov_x_l(){
-        playerposX=playerposX-5;
+        playerPos.setX(playerPos.getX()-5);
     }
     private void mov_x_r(){
-        playerposX+=5;
+        playerPos.setX(playerPos.getX()+5);
     }
     private void mov_y_u(){
-        playerposY-=5;
+        playerPos.setY(playerPos.getY()-5);
     }
     private void mov_y_d(){
-        playerposY+=5;
+        playerPos.setY(playerPos.getY()+5);
     }
 
-    public Gameplay(){
+    public Gameplay(JFrame f){
         addKeyListener(this);
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
         timer= new Timer(delay,this);
         timer.start();
+        
+        frame = f;
     }
+    @Override
     public void paint(Graphics g){
         //background
         g.setColor(Color.black);
@@ -47,8 +53,26 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
         //player
 
         g.setColor(Color.CYAN);
-        g.fillRect(playerposX,playerposY,20,20);
+        g.fillRect(playerPos.getX(),playerPos.getY(),20,20);
+
+        
+        //Bomb
+        g.setColor(Color.YELLOW);
+        for(int i=0; i<bombs.size();++i){
+                                System.out.println("czeka");
+            g.fillRect(bombs.get(i).getPos().getX(),bombs.get(i).getPos().getY(),20,20);
+        }
+        
+        //Wybuch
+        g.setColor(Color.RED);
+        for(int i=0; i<wybuchy.size();++i){
+                g.fillRect(wybuchy.get(i).getPosX()-20*wybuchy.get(i).getSila(),wybuchy.get(i).getPosY(),(20*wybuchy.get(i).getSila())*2+20, 20);
+                g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY()-20*wybuchy.get(i).getSila(), 20,(20*wybuchy.get(i).getSila())*2+20);
+
+        }
+        
         g.dispose();
+        
     }
 
     @Override
@@ -64,42 +88,64 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
     public void keyPressed(KeyEvent e) {
         ///////////// player movement ///////////
 
-        int i=0;
-
+        
+        
         if(e.getKeyCode()== KeyEvent.VK_RIGHT){
-            if(playerposX>=555){
-                playerposX= 555;
-                i++;
-                System.out.println("pozycja "+"x:"+playerposX+"y: "+playerposY+i);
+            if(przyScianie(playerPos, 3)>0){
+                playerPos.setX(555);
             }
             else mov_x_r();
         }
         if(e.getKeyCode()== KeyEvent.VK_LEFT){
-            System.out.println("lewo");
-            if(playerposX<=20){
-                playerposX= 20;
-                System.out.println("pozycja "+"x:"+playerposX+"y: "+playerposY);
+            if(przyScianie(playerPos, 1)>0){
+                playerPos.setX(20);
             }
             else mov_x_l();
         }
         if(e.getKeyCode()== KeyEvent.VK_UP){
-            System.out.println("lewo");
-            System.out.println("pozycja "+"x:"+playerposX+"y: "+playerposY);
-            if(playerposY<=20){
-                playerposY= 20;
+            if(przyScianie(playerPos, 2)>0){
+                playerPos.setY(20);
             }
             else mov_y_u();
         }
         if(e.getKeyCode()== KeyEvent.VK_DOWN){
-            if(playerposY>=535){
-                playerposY= 535;
-                System.out.println("pozycja "+"x:"+playerposX+"y: "+playerposY);
+            if(przyScianie(playerPos, 4)>0){
+                playerPos.setY(535);
             }
             else mov_y_d();
         }
+        if(e.getKeyCode()== KeyEvent.VK_SPACE){
+            Bomb bomb = new Bomb(playerPos, 3, bombs, wybuchy);
+            frame.add(bomb);
+               
+        }       
+        System.out.println("pozycja "+"x:"+playerPos.getX()+"y: "+playerPos.getY());
     }
+    
+    private int przyScianie(Wspolrzedne pos, int kierunek){
+            if(kierunek == 1 && pos.getX() -5 < 20){
+                
+                System.out.println("Sciana "+kierunek);
+                return kierunek;
+            } else if(kierunek == 3 && pos.getX() +5 >555){
+                
+                System.out.println("Sciana "+kierunek);
+                return kierunek;
+            } else if(kierunek == 2 && pos.getY() -5 <20){
+                
+                System.out.println("Sciana "+kierunek);
+                return kierunek;
+            } else if(kierunek ==4 && pos.getY() +5 > 535){
+                
+                System.out.println("Sciana "+kierunek);
+                return kierunek;
+            }else
+                return 0;
+        }
 
     @Override
     public void keyReleased(KeyEvent e) {
     }
+    
+   
 }

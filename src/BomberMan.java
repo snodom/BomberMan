@@ -4,7 +4,7 @@ public class BomberMan {
     public static void main(String[] args) {
 
         JFrame frame = new JFrame();
-        Gameplay gameplay = new Gameplay();
+        Gameplay gameplay = new Gameplay(frame);
         frame.setBounds(0,0,600,600);
         frame.setResizable(false);
         frame.setVisible(true);
