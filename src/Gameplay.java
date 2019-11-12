@@ -94,62 +94,12 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
                 g.fillRect(wybuchy.get(i).getPosX()-60,wybuchy.get(i).getPosY(), 80, 20);
                 g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY(),80, 20);
             }
-            else if (colision.colizje(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY())==2){
-
-                g.fillRect(wybuchy.get(i).getPosX()-60,wybuchy.get(i).getPosY(), 80, 20);
-                g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY(), 20, 80);
-                g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY()-60, 20, 80);
-            }
-            else if(colision.colizje(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY())==20){
-                g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY()-60, 20, 80);
-                g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY(), 20, 80);
-                g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY(),80, 20);
-            }
             else if(colision.colizje(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY())==22){
                 g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY()-60, 20, 80);
                 g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY(), 20, 80);
             }
-
-            else if(colision.colizje(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY())==200){
-                g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY()-60, 20, 80);
-                g.fillRect(wybuchy.get(i).getPosX()-60,wybuchy.get(i).getPosY(), 80, 20);
-                g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY(),80, 20);
-            }
-            else if(colision.colizje(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY())==202){
-                g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY()-60, 20, 80);
-                g.fillRect(wybuchy.get(i).getPosX()-60,wybuchy.get(i).getPosY(), 80, 20);
-            }
-            else if(colision.colizje(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY())==220){
-                g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY(),80, 20);
-                g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY()-60, 20, 80);
-            }
-            else if(colision.colizje(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY())==222){
-                g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY()-60, 20, 80);
-            }
-            else if(colision.colizje(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY())==2000){
-                g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY(), 20, 80);
-                g.fillRect(wybuchy.get(i).getPosX()-60,wybuchy.get(i).getPosY(), 80, 20);
-                g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY(),80, 20);
-            }
-            else if(colision.colizje(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY())==2002){
-                g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY(), 20, 80);
-                g.fillRect(wybuchy.get(i).getPosX()-60,wybuchy.get(i).getPosY(), 80, 20);
-            }
-            else if(colision.colizje(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY())==2020){
-                g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY(),80, 20);
-                g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY(), 20, 80);
-            }
-            else if(colision.colizje(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY())==2022){
-                g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY(), 20, 80);
-            }
             else if(colision.colizje(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY())==2200){
                 g.fillRect(wybuchy.get(i).getPosX()-60,wybuchy.get(i).getPosY(), 80, 20);
-                g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY(),80, 20);
-            }
-            else if(colision.colizje(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY())==2202){
-                g.fillRect(wybuchy.get(i).getPosX()-60,wybuchy.get(i).getPosY(), 80, 20);
-            }
-            else if(colision.colizje(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY())==2220){
                 g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY(),80, 20);
             }
             else{
@@ -157,7 +107,6 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
                 g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY(),20,20);
             }
         }
-        
         g.dispose();
         
     }
@@ -202,9 +151,10 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
             else mov_y_d();
         }
         if(e.getKeyCode()== KeyEvent.VK_SPACE){
-            Bomb bomb = new Bomb(playerPos, 3, bombs, wybuchy);
-            frame.add(bomb);
-               
+           if(playerPos.getX()>=70 && playerPos.getY()>=70) {
+               Bomb bomb = new Bomb(playerPos, 3, bombs, wybuchy);
+               frame.add(bomb);
+           }
         }       
         System.out.println("pozycja "+"x:"+playerPos.getX()+"y: "+playerPos.getY());
     }
