@@ -35,6 +35,5 @@ public class Wybuch {
     public void setSila(int sila) {
         this.sila = sila;
     }
-    
-    
+
 }

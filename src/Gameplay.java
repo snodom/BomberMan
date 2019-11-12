@@ -82,9 +82,80 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
         //Wybuch
         g.setColor(Color.RED);
         for(int i=0; i<wybuchy.size();++i){
-                g.fillRect(wybuchy.get(i).getPosX()-20*wybuchy.get(i).getSila(),wybuchy.get(i).getPosY(),(20*wybuchy.get(i).getSila())*2+20, 20);
-                g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY()-20*wybuchy.get(i).getSila(), 20,(20*wybuchy.get(i).getSila())*2+20);
 
+            // rysuj w prawo g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY(),80, 20);
+            // rysuj w lewo //  g.fillRect(wybuchy.get(i).getPosX()-60,wybuchy.get(i).getPosY(), 80, 20);
+            // rysuj w dol g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY(), 20, 80);
+            // rysuj w gore g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY()-60, 20, 80);
+
+            if(colision.colizje(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY())==0){
+                g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY()-60, 20, 80);
+                g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY(), 20, 80);
+                g.fillRect(wybuchy.get(i).getPosX()-60,wybuchy.get(i).getPosY(), 80, 20);
+                g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY(),80, 20);
+            }
+            else if (colision.colizje(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY())==2){
+
+                g.fillRect(wybuchy.get(i).getPosX()-60,wybuchy.get(i).getPosY(), 80, 20);
+                g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY(), 20, 80);
+                g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY()-60, 20, 80);
+            }
+            else if(colision.colizje(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY())==20){
+                g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY()-60, 20, 80);
+                g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY(), 20, 80);
+                g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY(),80, 20);
+            }
+            else if(colision.colizje(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY())==22){
+                g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY()-60, 20, 80);
+                g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY(), 20, 80);
+            }
+
+            else if(colision.colizje(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY())==200){
+                g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY()-60, 20, 80);
+                g.fillRect(wybuchy.get(i).getPosX()-60,wybuchy.get(i).getPosY(), 80, 20);
+                g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY(),80, 20);
+            }
+            else if(colision.colizje(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY())==202){
+                g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY()-60, 20, 80);
+                g.fillRect(wybuchy.get(i).getPosX()-60,wybuchy.get(i).getPosY(), 80, 20);
+            }
+            else if(colision.colizje(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY())==220){
+                g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY(),80, 20);
+                g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY()-60, 20, 80);
+            }
+            else if(colision.colizje(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY())==222){
+                g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY()-60, 20, 80);
+            }
+            else if(colision.colizje(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY())==2000){
+                g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY(), 20, 80);
+                g.fillRect(wybuchy.get(i).getPosX()-60,wybuchy.get(i).getPosY(), 80, 20);
+                g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY(),80, 20);
+            }
+            else if(colision.colizje(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY())==2002){
+                g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY(), 20, 80);
+                g.fillRect(wybuchy.get(i).getPosX()-60,wybuchy.get(i).getPosY(), 80, 20);
+            }
+            else if(colision.colizje(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY())==2020){
+                g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY(),80, 20);
+                g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY(), 20, 80);
+            }
+            else if(colision.colizje(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY())==2022){
+                g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY(), 20, 80);
+            }
+            else if(colision.colizje(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY())==2200){
+                g.fillRect(wybuchy.get(i).getPosX()-60,wybuchy.get(i).getPosY(), 80, 20);
+                g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY(),80, 20);
+            }
+            else if(colision.colizje(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY())==2202){
+                g.fillRect(wybuchy.get(i).getPosX()-60,wybuchy.get(i).getPosY(), 80, 20);
+            }
+            else if(colision.colizje(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY())==2220){
+                g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY(),80, 20);
+            }
+            else{
+                g.setColor(Color.red);
+                g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY(),20,20);
+            }
         }
         
         g.dispose();
