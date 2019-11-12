@@ -2,8 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="695742e3-a46b-4461-9c62-53d59fe41e41" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Colisions.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Bomberman/Bomb$TimerBomby.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bomberman/Bomb$TimerBomby.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Bomberman/Bomb$WybuchanieBomby.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bomberman/Bomb$WybuchanieBomby.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Bomberman/Bomb.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bomberman/Bomb.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Bomberman/BomberMan.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bomberman/BomberMan.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Bomberman/Gameplay.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bomberman/Gameplay.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Bomberman/Wspolrzedne.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bomberman/Wspolrzedne.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Bomb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bomb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BomberMan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BomberMan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gameplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gameplay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Image.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Textures.java" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,7 +33,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1TR3WQDWNab3Tv64NBewef58VEa" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -71,10 +84,15 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

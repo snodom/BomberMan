@@ -8,7 +8,7 @@ import java.util.Timer;
 import javax.swing.*;
 
 public class Bomb extends JPanel  {
-    private int czas = 5000;
+    private int czas = 3000;
     private int sila = 3; //Maksymalna siła uderzenia
 
     private Wspolrzedne pozycja;
@@ -45,10 +45,9 @@ public class Bomb extends JPanel  {
             b.removeFirst();
 
             wyb = new Wybuch (bomba.getPos().getX(), bomba.getPos().getY(), sila);
-            
-            
+
             timer2 = new Timer();
-            timer2.schedule(new WybuchanieBomby(bomba), 1000);
+            timer2.schedule(new WybuchanieBomby(bomba), 500);
         }
         
     }

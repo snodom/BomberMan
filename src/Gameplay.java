@@ -14,18 +14,24 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
     private JFrame frame;
     private LinkedList<Bomb> bombs = new LinkedList<Bomb>();
     private LinkedList<Wybuch> wybuchy = new LinkedList<Wybuch>();
+    private Colisions colision = new Colisions();
 
     private void mov_x_l(){
         playerPos.setX(playerPos.getX()-5);
+        colision.colison(playerPos.getX(),playerPos.getY());
+
     }
     private void mov_x_r(){
         playerPos.setX(playerPos.getX()+5);
+        colision.colison(playerPos.getX(),playerPos.getY());
     }
     private void mov_y_u(){
         playerPos.setY(playerPos.getY()-5);
+        colision.colison(playerPos.getX(),playerPos.getY());
     }
     private void mov_y_d(){
         playerPos.setY(playerPos.getY()+5);
+        colision.colison(playerPos.getX(),playerPos.getY());
     }
 
     public Gameplay(JFrame f){
@@ -48,12 +54,21 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
         g.fillRect(0,0,20,590);
         g.fillRect(0,0,600,20);
         g.fillRect(575,0,20,600);
-        g.fillRect(0,555,600,20);
+        g.fillRect(0,575,600,20);
+
+        // cubes
+        for(int i=30; i<500;){
+            i+=40;
+            for(int j=30;j<500;){
+                j+=40;
+                g.fillRect(i,j,20,20);
+            }
+        }
 
         //player
 
         g.setColor(Color.CYAN);
-        g.fillRect(playerPos.getX(),playerPos.getY(),20,20);
+        g.fillOval(playerPos.getX(),playerPos.getY(),20,20);
 
         
         //Bomb
@@ -110,7 +125,7 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
         }
         if(e.getKeyCode()== KeyEvent.VK_DOWN){
             if(przyScianie(playerPos, 4)>0){
-                playerPos.setY(535);
+                playerPos.setY(555);
             }
             else mov_y_d();
         }
@@ -135,7 +150,7 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
                 
                 System.out.println("Sciana "+kierunek);
                 return kierunek;
-            } else if(kierunek ==4 && pos.getY() +5 > 535){
+            } else if(kierunek ==4 && pos.getY() +5 > 555){
                 
                 System.out.println("Sciana "+kierunek);
                 return kierunek;
