@@ -2,19 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="695742e3-a46b-4461-9c62-53d59fe41e41" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Colisions.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Bomberman/Bomb$TimerBomby.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bomberman/Bomb$TimerBomby.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Bomberman/Bomb$WybuchanieBomby.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bomberman/Bomb$WybuchanieBomby.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Bomberman/Bomb.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bomberman/Bomb.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Bomberman/BomberMan.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bomberman/BomberMan.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Bomberman/Gameplay.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bomberman/Gameplay.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Bomberman/Wspolrzedne.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bomberman/Wspolrzedne.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bomb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bomb.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BomberMan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BomberMan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Colisions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Colisions.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Gameplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gameplay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Image.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Textures.java" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

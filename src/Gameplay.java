@@ -17,21 +17,22 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
     private Colisions colision = new Colisions();
 
     private void mov_x_l(){
+        if(colision.colison(playerPos.getX()-5,playerPos.getY()))
         playerPos.setX(playerPos.getX()-5);
-        colision.colison(playerPos.getX(),playerPos.getY());
 
     }
     private void mov_x_r(){
+        if(colision.colison(playerPos.getX()+5,playerPos.getY()))
         playerPos.setX(playerPos.getX()+5);
-        colision.colison(playerPos.getX(),playerPos.getY());
+
     }
     private void mov_y_u(){
+        if(colision.colison(playerPos.getX(),playerPos.getY()-5))
         playerPos.setY(playerPos.getY()-5);
-        colision.colison(playerPos.getX(),playerPos.getY());
     }
     private void mov_y_d(){
+        if(colision.colison(playerPos.getX(),playerPos.getY()+5))
         playerPos.setY(playerPos.getY()+5);
-        colision.colison(playerPos.getX(),playerPos.getY());
     }
 
     public Gameplay(JFrame f){
@@ -118,7 +119,7 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
             else mov_x_l();
         }
         if(e.getKeyCode()== KeyEvent.VK_UP){
-            if(przyScianie(playerPos, 2)>0){
+            if((przyScianie(playerPos, 2)>0) && colision.colison(playerPos.getX(),playerPos.getY())){
                 playerPos.setY(20);
             }
             else mov_y_u();
