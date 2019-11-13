@@ -15,6 +15,8 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
     private LinkedList<Bomb> bombs = new LinkedList<Bomb>();
     private LinkedList<Wybuch> wybuchy = new LinkedList<Wybuch>();
     private Colisions colision = new Colisions();
+    private Map_walls map;
+    private int number_walls=23;
 
     private void mov_x_l(){
         if(colision.colison(playerPos.getX()-5,playerPos.getY()))
@@ -36,6 +38,7 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
     }
 
     public Gameplay(JFrame f){
+        map= new Map_walls(21,21);
         addKeyListener(this);
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
@@ -49,6 +52,7 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
         //background
         g.setColor(Color.black);
         g.fillRect(0,0,600,600);
+        map.draw((Graphics2D)g);
 
         //borders
         g.setColor(Color.darkGray);
@@ -57,7 +61,7 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
         g.fillRect(575,0,20,600);
         g.fillRect(0,575,600,20);
 
-        // cubes
+  // cubes
         for(int i=30; i<500;){
             i+=40;
             for(int j=30;j<500;){
@@ -113,7 +117,11 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        timer.start();
+        timer.start(); // PIERWSZY IF JEST GIT!!
+        if((map.check_cols_rows_40(playerPos.getX()) && map.check_cols_rows_20(playerPos.getY())) || (map.check_cols_rows_20(playerPos.getX()) && map.check_cols_rows_40(playerPos.getY()))) {
+            System.out.println("teraz");
+            map.setMap(map.return_col_rows(playerPos.getX(),playerPos.getY()), map.return_col_rows(playerPos.getY(),playerPos.getX()), 0);
+        }
         repaint();
     }
     @Override
