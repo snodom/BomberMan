@@ -1,12 +1,11 @@
 class Colisions {
 
    boolean colison(int x, int y){
-
        // sprawdzanie kwadratkow
 
         for(int i=35; i<510;){
             for(int j=35;j<510;){          //((lewa , prawa)                  // (gora, dol)
-                if(((x==i+20 ||x==i+50) && (y>=j+20 && y<=j+50)) || ((x>=i+20 && x<=i+50) && (y==j+20 || y==j+50)) ) {
+                if(((x==i+20 ||x==i+50) && (y>=j+20 && y<=j+50)) || ((x>=i+20 && x<=i+50) && (y==j+20 || y==j+50))) {
                     System.out.println("tam jest zakaz "+j);
                     return false;
                 }
@@ -78,5 +77,18 @@ int colizje(int bomb_posX, int bomb_posY){
             i+=40;
         }
         return false;
+    }
+
+    boolean wall_colision(Map_walls map_wall,int x, int y){
+       int i,j;
+       if(map_wall.check_position(x,y)){
+           i= map_wall.return_col_rows(x,y);
+           j =map_wall.return_col_rows(y,x);
+
+           if(map_wall.map[i][j]==1){
+                   return true;
+           }
+       }
+       return false;
     }
 }

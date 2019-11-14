@@ -4,10 +4,9 @@ public class Map_walls {
 
     int map[][];
     int i, j;
-    int check_set_bomb=0;
 
-    private void setMap(int col, int row, int value) {
-        map[col][row] = value;
+    private void setMap(int col, int row) {
+        map[col][row] = 0;
     }
 
     void draw(Graphics2D g) {
@@ -33,7 +32,7 @@ public class Map_walls {
         }
     }
 
-    boolean check_cols_rows_40(int x) {
+    private boolean check_cols_rows_40(int x) {
         for (int i = 0; i < 11; i++) {
             if (x == (i * 40 + 90)) return true;
         }
@@ -41,13 +40,14 @@ public class Map_walls {
 
     }
 
-    boolean check_cols_rows_20(int x) {
+    private boolean check_cols_rows_20(int x) {
         for (int i = 0; i < 22; i++) {
             if (x == (i * 20 + 90)) return true;
         }
         return false;
 
     }
+
     boolean check_cols(int x) {
         for (int i = 0; i < 22; i++) {
             if (x == (i * 40 + 90)) return true;
@@ -86,41 +86,38 @@ public class Map_walls {
 
     boolean check_position(int x, int y) {
 
-        if (check_cols_rows_40(x) && check_cols_rows_20(y) || (check_cols_rows_20(x) && check_cols_rows_40(y)))
-            return true;
-        return false;
+        return check_cols_rows_40(x) && check_cols_rows_20(y) || (check_cols_rows_20(x) && check_cols_rows_40(y));
     }
+
     void setBombColsRows(int i, int j) {
-        check_set_bomb=1;
         setBombCol(i,j,2);
         setBombRow(i,j,2);
-
     }
     void setBombCol(int i, int j,int check_set_bomb) {             // i sie nie zmienia
         if (j >= 0) {
-            if ((j - 4 >= 0) && check_set_bomb==1) setMap(i, j - 4, 0);
-            if (j - 3 >= 0) setMap(i, j - 3, 0);
-            if (j - 2 >= 0) setMap(i, j - 2, 0);
-            if (j - 1 >= 0) setMap(i, j - 1, 0);
+            if ((j - 4 >= 0) && check_set_bomb==1) setMap(i, j - 4);
+            if (j - 3 >= 0) setMap(i, j - 3);
+            if (j - 2 >= 0) setMap(i, j - 2);
+            if (j - 1 >= 0) setMap(i, j - 1);
             if (j <= 20) {
-                setMap(i, j, 0);
-                if ((j + 3 <=20) && check_set_bomb==2) setMap(i, j +3, 0);
-                if ((j + 2 <= 20) && check_set_bomb==2) setMap(i, j + 2, 0);
-                if (j + 1 <= 20) setMap(i, j + 1, 0);
+                setMap(i, j);
+                if ((j + 3 <=20) && check_set_bomb==2) setMap(i, j +3);
+                if ((j + 2 <= 20) && check_set_bomb==2) setMap(i, j + 2);
+                if (j + 1 <= 20) setMap(i, j + 1);
             }
         }
     }
     void setBombRow(int i, int j,int check_set_bomb) {
         if (i >= 0) {
-            if ((i - 4 >= 0) && check_set_bomb==1) setMap(i-4, j , 0);
-            if (i - 3 >= 0) setMap(i-3, j, 0);
-            if (i - 2 >= 0) setMap(i-2, j , 0);
-            if (i - 1 >= 0) setMap(i-1, j, 0);
+            if ((i - 4 >= 0) && check_set_bomb==1) setMap(i-4, j);
+            if (i - 3 >= 0) setMap(i-3, j);
+            if (i - 2 >= 0) setMap(i-2, j);
+            if (i - 1 >= 0) setMap(i-1, j);
             if (i <= 20) {
-                setMap(i, j, 0);
-                if ((i + 3 <=20) && check_set_bomb==2) setMap(i+3, j, 0);
-                if ((i + 2 <= 20)&& check_set_bomb==2) setMap(i+2, j, 0);
-                if (i + 1 <= 20) setMap(i+1, j, 0);
+                setMap(i, j);
+                if ((i + 3 <=20) && check_set_bomb==2) setMap(i+3, j);
+                if ((i + 2 <= 20)&& check_set_bomb==2) setMap(i+2, j);
+                if (i + 1 <= 20) setMap(i+1, j);
             }
         }
     }

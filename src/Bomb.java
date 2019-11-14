@@ -8,7 +8,7 @@ import java.util.Timer;
 import javax.swing.*;
 
 public class Bomb extends JPanel  {
-    private int czas = 3000;
+    private int czas = 2500;
     private int sila = 3; //Maksymalna siła uderzenia
 
     private Wspolrzedne pozycja;
