@@ -16,7 +16,7 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
     private LinkedList<Wybuch> wybuchy = new LinkedList<Wybuch>();
     private Colisions colision = new Colisions();
     private Map_walls map;
-    private int number_walls=23;
+
 
     private void mov_x_l(){
         if(colision.colison(playerPos.getX()-5,playerPos.getY()))
@@ -97,14 +97,45 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
                 g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY(), 20, 80);
                 g.fillRect(wybuchy.get(i).getPosX()-60,wybuchy.get(i).getPosY(), 80, 20);
                 g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY(),80, 20);
+
+                if(map.check_position(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY())){
+
+                    map.i=map.return_col_rows(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY());
+                    map.j=map.return_col_rows(wybuchy.get(i).getPosY(),wybuchy.get(i).getPosX());
+
+                    map.setBombColsRows(map.i,map.j);
+                }
+
+                System.out.println("wybuch x"+wybuchy.get(i).getPosX());
+                System.out.println("wybuch y"+wybuchy.get(i).getPosY());
             }
             else if(colision.colizje(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY())==22){
                 g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY()-60, 20, 80);
                 g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY(), 20, 80);
+
+
+               if(map.check_cols(wybuchy.get(i).getPosX())){
+                   map.i=map.return_col(wybuchy.get(i).getPosX());
+                   map.j=map.return_col(wybuchy.get(i).getPosY());
+
+                   map.setBombCol(map.i,map.j,1);
+
+                   System.out.println("wybuch x"+map.i);
+                   System.out.println("wybuch y"+map.j);
+               }
+
+
             }
             else if(colision.colizje(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY())==2200){
                 g.fillRect(wybuchy.get(i).getPosX()-60,wybuchy.get(i).getPosY(), 80, 20);
                 g.fillRect(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY(),80, 20);
+
+                if(map.check_cols(wybuchy.get(i).getPosY())){
+
+                    map.j=map.return_col(wybuchy.get(i).getPosY());
+                    map.i=map.return_col(wybuchy.get(i).getPosX());
+                    map.setBombRow(map.i,map.j,1);
+                }
             }
             else{
                 g.setColor(Color.red);
@@ -118,9 +149,9 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         timer.start(); // PIERWSZY IF JEST GIT!!
-        if((map.check_cols_rows_40(playerPos.getX()) && map.check_cols_rows_20(playerPos.getY())) || (map.check_cols_rows_20(playerPos.getX()) && map.check_cols_rows_40(playerPos.getY()))) {
-            System.out.println("teraz");
-            map.setMap(map.return_col_rows(playerPos.getX(),playerPos.getY()), map.return_col_rows(playerPos.getY(),playerPos.getX()), 0);
+        if(map.check_position(playerPos.getX(),playerPos.getY())){
+            //System.out.println("teraz");
+            //map.setMap(map.return_col_rows(playerPos.getX(),playerPos.getY()), map.return_col_rows(playerPos.getY(),playerPos.getX()), 0);
         }
         repaint();
     }
@@ -132,8 +163,6 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
     public void keyPressed(KeyEvent e) {
         ///////////// player movement ///////////
 
-        
-        
         if(e.getKeyCode()== KeyEvent.VK_RIGHT){
             if(przyScianie(playerPos, 3)>0){
                 playerPos.setX(555);

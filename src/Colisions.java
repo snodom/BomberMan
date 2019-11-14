@@ -30,7 +30,7 @@ int colizje(int bomb_posX, int bomb_posY){
         for(int i=35; i<510;){
             for(int j=35;j<510;){          //((lewa , prawa)                  // (gora, dol)
                 if(((bomb_posX==i+15) && (bomb_posY>=j+20 && bomb_posY<=j+50))) {
-                    System.out.println("tam jest zakaz "+j);
+                   // System.out.println("tam jest zakaz "+j);
                     return true;
                 }
                 j+=40;
