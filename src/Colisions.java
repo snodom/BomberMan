@@ -84,6 +84,8 @@ int colizje(int bomb_posX, int bomb_posY){
        if(map_wall.check_position(x,y)){
            i= map_wall.return_col_rows(x,y);
            j =map_wall.return_col_rows(y,x);
+           System.out.println("i "+i);
+           System.out.println("j "+j);
 
            if(map_wall.map[i][j]==1){
                    return true;

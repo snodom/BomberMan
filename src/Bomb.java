@@ -1,34 +1,29 @@
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.LinkedList;
 import java.util.TimerTask;
 import java.util.Timer;
 import javax.swing.*;
 
 public class Bomb extends JPanel  {
-    private int czas = 2500;
-    private int sila = 3; //Maksymalna siła uderzenia
+    private int time = 2700;
+    private int power = 3;
 
-    private Wspolrzedne pozycja;
+    private Co_Ordinates pozycja;
     private Timer timer; 
     private Timer timer2;
     private LinkedList<Bomb> b;
-    private LinkedList<Wybuch> w;
-    Wybuch wyb;
+    private LinkedList<Explosion> ekspl;
+    Explosion wyb;
      
-    public Bomb(Wspolrzedne pos, int sil, LinkedList<Bomb> bombs, LinkedList<Wybuch> wybuchy){
-        pozycja = new Wspolrzedne(pos);
-        sila = sil;
+    public Bomb(Co_Ordinates pos, int sil, LinkedList<Bomb> bombs, LinkedList<Explosion> explosions){
+        pozycja = new Co_Ordinates(pos);
+        power = sil;
         b = bombs;
-        w = wybuchy;
+        ekspl = explosions;
         b.add(this);
-        System.out.println("Bomba rzucona w       x: "+pozycja.getX()+"y: "+pozycja.getY());
         
         
         timer = new Timer();
-        timer.schedule(new TimerBomby(this), czas);
+        timer.schedule(new TimerBomby(this), time);
         
     }
 
@@ -40,30 +35,29 @@ public class Bomb extends JPanel  {
             
         }
         public void run() {
-            System.out.println("Bomba wybucha!");
             timer.cancel(); //Terminate the timer thread
             b.removeFirst();
 
-            wyb = new Wybuch (bomba.getPos().getX(), bomba.getPos().getY(), sila);
+            wyb = new Explosion(bomba.getPos().getX(), bomba.getPos().getY(), power);
 
             timer2 = new Timer();
-            timer2.schedule(new WybuchanieBomby(bomba), 500);
+            timer2.schedule(new BombExplosion(bomba), 500);
         }
         
     }
        
-    class WybuchanieBomby extends TimerTask {
-        public WybuchanieBomby(Bomb bomb){
-            w.add(wyb);
+    class BombExplosion extends TimerTask {
+        public BombExplosion(Bomb bomb){
+            ekspl.add(wyb);
         }
             
         public void run() {
             timer2.cancel(); //Terminate the timer thread
-            w.removeFirst();
+            ekspl.removeFirst();
         }
 
     }
-     public Wspolrzedne getPos() {
+     public Co_Ordinates getPos() {
         return pozycja;
     }
 

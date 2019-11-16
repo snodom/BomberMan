@@ -10,10 +10,10 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
 
     private Timer timer;
     private int delay=15;
-    private Wspolrzedne playerPos = new Wspolrzedne(20,20);
+    private Co_Ordinates playerPos = new Co_Ordinates(20,20);
     private JFrame frame;
     private LinkedList<Bomb> bombs = new LinkedList<Bomb>();
-    private LinkedList<Wybuch> wybuchy = new LinkedList<Wybuch>();
+    private LinkedList<Explosion> wybuchy = new LinkedList<Explosion>();
     private Colisions colision = new Colisions();
     private Map_walls map;
 
@@ -88,7 +88,7 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
         //Bomb
         g.setColor(Color.YELLOW);
         for(int i=0; i<bombs.size();++i){
-                                System.out.println("czeka");
+
             g.fillRect(bombs.get(i).getPos().getX(),bombs.get(i).getPos().getY(),20,20);
         }
         
@@ -128,11 +128,9 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
                    map.j=map.return_col(wybuchy.get(i).getPosY());
 
                    map.setBombCol(map.i,map.j,1);
-
                    System.out.println("wybuch x"+map.i);
                    System.out.println("wybuch y"+map.j);
                }
-
 
             }
             else if(colision.colizje(wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY())==2200){
@@ -157,10 +155,12 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        timer.start(); // PIERWSZY IF JEST GIT!!
-        if(map.check_position(playerPos.getX(),playerPos.getY())){
-            //System.out.println("teraz");
-            //map.setMap(map.return_col_rows(playerPos.getX(),playerPos.getY()), map.return_col_rows(playerPos.getY(),playerPos.getX()), 0);
+        timer.start();
+        for(int i=0; i<wybuchy.size();++i){
+            repaint();
+        if(EndGame.crossExplosion(playerPos.getX(),playerPos.getY(),wybuchy.get(i).getPosX(),wybuchy.get(i).getPosY(),colision)){
+                JOptionPane.showMessageDialog(null,"Koniec gry - przegrales :)");
+        }
         }
         repaint();
     }
@@ -203,9 +203,10 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
            }
         }       
         System.out.println("pozycja "+"x:"+playerPos.getX()+"y: "+playerPos.getY());
+        System.out.println("lukasz 30 ");
     }
     
-    private int przyScianie(Wspolrzedne pos, int kierunek){
+    private int przyScianie(Co_Ordinates pos, int kierunek){
             if(kierunek == 1 && pos.getX() -5 < 20){
                 
                 System.out.println("Sciana "+kierunek);

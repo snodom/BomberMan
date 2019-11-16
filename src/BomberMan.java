@@ -8,6 +8,7 @@ public class BomberMan {
         frame.setBounds(0,0,600,620);
         frame.setResizable(false);
         frame.setVisible(true);
+        frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("BomberMan!");
         frame.add(gameplay);

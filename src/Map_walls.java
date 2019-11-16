@@ -41,7 +41,7 @@ public class Map_walls {
     }
 
     private boolean check_cols_rows_20(int x) {
-        for (int i = 0; i < 22; i++) {
+        for (int i = 0; i < 21; i++) {
             if (x == (i * 20 + 90)) return true;
         }
         return false;
@@ -49,14 +49,14 @@ public class Map_walls {
     }
 
     boolean check_cols(int x) {
-        for (int i = 0; i < 22; i++) {
+        for (int i = 0; i < 21; i++) {
             if (x == (i * 40 + 90)) return true;
         }
         return false;
 
     }
 
-    int return_col_rows(int x, int y) {
+    int return_col_rows(int x, int y) {         //// 22 - 23
         for (int i = 0; i < 23; i++) {
             for (int j = 0; j < 23; j++) {
                 if ((x == (i * 20 + 90)) && y == (j * 40 + 90)) {
@@ -69,7 +69,7 @@ public class Map_walls {
         }
         return 0;
     }
-
+                                                        //// 22 - 23
     int return_col(int x) {
         for (int i = 0; i < 23; i++) {
             for (int j = 0; j < 23; j++) {

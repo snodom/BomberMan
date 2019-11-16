@@ -1,14 +1,14 @@
 
-public class Wspolrzedne {
+public class Co_Ordinates {
     private int x;
     private int y;
     
-    public Wspolrzedne(int a, int b){
+    public Co_Ordinates(int a, int b){
         x = a;
         y = b;
     }
     
-    public Wspolrzedne(Wspolrzedne drugi){
+    public Co_Ordinates(Co_Ordinates drugi){
         x = drugi.getX();
         y = drugi.getY();
     }

@@ -2,14 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="695742e3-a46b-4461-9c62-53d59fe41e41" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/EndGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Bomberman/Colisions.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bomberman/Colisions.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Bomberman/Bomb.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bomberman/Bomb.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Bomberman/Gameplay.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bomberman/Gameplay.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Bomberman/Map_walls.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bomberman/Map_walls.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Bomberman/Wybuch.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bomberman/Wybuch.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Bomb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bomb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BomberMan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BomberMan.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Colisions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Colisions.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Gameplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gameplay.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Map_walls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Map_walls.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Wspolrzedne.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Co_Ordinates.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Wybuch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Explosion.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,6 +38,7 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
